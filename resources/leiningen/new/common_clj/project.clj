@@ -14,8 +14,8 @@
                            [hashp "0.2.2"]
                            [prismatic/schema "1.4.1"]
                            [org.clojure/data.csv "1.0.1"]
-                           [morse "0.4.3"]
-                           [incanter "1.9.3"]]
+                           [de.ubercode.clostache/clostache "1.4.0"]
+                           [morse "0.4.3"]]
 
             :injections [(require 'hashp.core)]
 

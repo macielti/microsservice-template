@@ -16,4 +16,5 @@
                   ["src/{{sanitized}}/db/datomic/config.clj" (render "src/db/datomic/config.clj" data)]
                   ["src/{{sanitized}}/diplomat/http_server.clj" (render "src/diplomat/http_server.clj" data)]
                   ["resources/config.example.edn" (render "resources/config.example.edn" data)]
+                  ["resources/templates/start.mustache" (render "resources/templates/start.mustache" data)]
                   ["project.clj" (render "project.clj" data)])))
