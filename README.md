@@ -1,14 +1,14 @@
 # net.clojars.macielti/common-clj
 
-A Leiningen template for FIXME.
-
 ## Usage
 
-FIXME
+If you want to create a new project, use the following command:
+
+`lein new net.clojars.macielti/common-clj <project name>`
 
 ## License
 
-Copyright © 2022 FIXME
+Copyright © 2022 Bruno do Nascimento Maciel
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
