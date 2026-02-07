@@ -1,10 +1,10 @@
-# net.clojars.macielti/common-clj
+# Lein Templates for `net.clojars.macielti` 
 
 ## Usage
 
 If you want to create a new project, use the following command:
 
-`lein new net.clojars.macielti/common-clj <project name>`
+`lein new net.clojars.macielti/microservice your-new-project-name`
 
 ## License
 
