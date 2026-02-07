@@ -1,30 +1,21 @@
 (ns {{name}}.components
-  (:require [common-clj.component.config :as component.config]
-            [common-clj.component.datomic :as component.datomic]
-            [com.stuartsierra.component :as component]
-            [common-clj.component.telegram.consumer :as component.telegram.consumer]
-            [common-clj.component.service :as component.service]
-            [common-clj.component.http-client :as component.http-client]
-            [common-clj.component.routes :as component.routes]
-            [{{name}}.db.datomic.config :as datomic.config]
-            [{{name}}.diplomat.http-server :as diplomat.http-server]))
+  (:require [common-clj.integrant-components.config :as component.config]
+            [integrant.core :as ig]
+            [taoensso.timbre :as timbre]
+            [taoensso.timbre.tools.logging])
+  (:gen-class))
 
-(def system-prod
-  (component/system-map
-    :config (component.config/new-config "resources/config.edn" :prod :edn)
-    :telegram-webhook-consumer (component/using (component.telegram.consumer/new-telegram-webhook-consumer) [:config :datomic])
-    :datomic (component/using (component.datomic/new-datomic datomic.config/schemas) [:config])
-    :http-client (component/using (component.http-client/new-http-client) [:config])
-    :routes (component/using (component.routes/new-routes diplomat.http-server/routes) [:datomic :config])
-    :service (component/using (component.service/new-service) [:routes :config :datomic :http-client])))
+(taoensso.timbre.tools.logging/use-timbre)
+
+(def components
+  {:config      (ig/ref ::component.config/config)})
+
+(def arranjo
+  {::component.config/config  {:path "resources/config.edn"
+                               :env  :prod}})
 
 (defn start-system! []
-  (component/start system-prod))
+  (timbre/set-min-level! :debug)
+  (ig/init arranjo))
 
-(def system-test
-  (component/system-map
-    :config (component.config/new-config "resources/config.example.edn" :test :edn)
-    :datomic (component/using (component.datomic/new-datomic datomic.config/schemas) [:config])
-    :http-client (component/using (component.http-client/new-http-client) [:config])
-    :routes (component/using (component.routes/new-routes diplomat.http-server/routes) [:datomic :config])
-    :service (component/using (component.service/new-service) [:routes :config :datomic :http-client])))
+(def -main start-system!)
