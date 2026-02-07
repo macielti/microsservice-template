@@ -1,13 +1,14 @@
-(ns leiningen.new.common-clj
+(ns leiningen.new.microservice
   (:require [leiningen.new.templates :as tmpl]
             [leiningen.core.main :as main]))
 
-(def render (tmpl/renderer "common_clj"))
+(def render (tmpl/renderer "microservice"))
 
-(defn common-clj
+(defn microservice
   "FIXME: write documentation"
-  [name]
-  (let [data {:name      name
+  [& args]
+  (let [name (first args)
+        data {:name      name
               :sanitized (tmpl/name-to-path name)}]
     (main/info "Generating fresh 'lein new' net.clojars.macielti/common-clj project.")
     (main/info "Using '0.0.0.0' as host and '8000' as port, you can change it by editing 'resources/config.example.edn'")
