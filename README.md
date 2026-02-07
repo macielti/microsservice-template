@@ -1,4 +1,4 @@
-# Lein Templates for `net.clojars.macielti` 
+# Leiningen Microsevice Template for `net.clojars.macielti`
 
 ## Usage
 
