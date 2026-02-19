@@ -20,4 +20,5 @@
                   ["Dockerfile" (render "Dockerfile" data)]
                   [".dockerignore" (render "dockerignore" data)]
                   [".gitignore" (render "gitignore" data)]
-                  ["project.clj" (render "project.clj" data)])))
+                  ["project.clj" (render "project.clj" data)]
+                  ["reflect-config.json" (render "reflect-config.json" data)])))

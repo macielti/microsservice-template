@@ -1,7 +1,10 @@
 (ns {{name}}.components
   (:require [common-clj.integrant-components.config :as component.config]
+            [common-clj.integrant-components.routes :as component.routes]
             [datalevin-component.core :as component.datalevin]
+            [service-component.core :as component.service]
             [{{name}}.db.datalevin.config :as datalevin.config]
+            [{{name}}.diplomat.http-server :as diplomat.http-server]
             [integrant.core :as ig]
             [taoensso.timbre :as timbre]
             [taoensso.timbre.tools.logging])
@@ -14,10 +17,13 @@
    :datalevin   (ig/ref ::component.datalevin/datalevin)})
 
 (def arranjo
-  {::component.config/config      {:path "resources/config.edn"
-                                   :env  :prod}
+  {::component.config/config       {:path "resources/config.edn"
+                                    :env  :prod}
    ::component.datalevin/datalevin {:schema     datalevin.config/schema
-                                    :components (select-keys components [:config])}})
+                                    :components (select-keys components [:config])}
+   ::component.routes/routes       {:routes diplomat.http-server/routes}
+   ::component.service/service     {:components (merge components
+                                                       {:routes (ig/ref ::component.routes/routes)})}})
 
 (defn start-system! []
   (timbre/set-min-level! :debug)
