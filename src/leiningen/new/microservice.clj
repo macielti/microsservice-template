@@ -21,4 +21,5 @@
                   [".dockerignore" (render "dockerignore" data)]
                   [".gitignore" (render "gitignore" data)]
                   ["project.clj" (render "project.clj" data)]
-                  ["reflect-config.json" (render "reflect-config.json" data)])))
+                  ["reflect-config.json" (render "reflect-config.json" data)]
+                  ["README.md" (render "README.md" data)])))

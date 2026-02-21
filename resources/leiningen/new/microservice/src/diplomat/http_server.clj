@@ -1,5 +1,12 @@
 (ns {{name}}.diplomat.http-server
-  (:require [{{name}}.diplomat.http-server.hello-world :as diplomat.http-server.hello-world]))
+        (:require [schema.core :as s]))
 
-(def routes [["/api/hello-world" :post [diplomat.http-server.hello-world/hello-world]
+{{=<% %>=}}
+(s/defn hello-world
+        [{{:keys [datalevin config]}  :components}]
+        {:status 200
+         :body   {:hello :world}})
+<%={{ }}=%>
+
+(def routes [["/api/hello-world" :post [hello-world]
               :route-name :hello-world]])
