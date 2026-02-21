@@ -1,4 +1,4 @@
-(defproject net.clojars.macielti/lein-template.microservice "0.100.180"
+(defproject net.clojars.macielti/lein-template.microservice "0.100.200"
   :description "Leiningen microservice template"
   :url "https://github.com/macielti/microservice-leiningen-template"
 

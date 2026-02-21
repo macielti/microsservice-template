@@ -23,4 +23,6 @@
                   [".gitignore" (render "gitignore" data)]
                   ["project.clj" (render "project.clj" data)]
                   ["reflect-config.json" (render "reflect-config.json" data)]
-                  ["README.md" (render "README.md" data)])))
+                  ["README.md" (render "README.md" data)]
+                  [".clj-kondo/config.edn" (render "clj-kondo/config.edn" data)]
+                  [".lsp/config.edn" (render "lsp/config.edn" data)])))
