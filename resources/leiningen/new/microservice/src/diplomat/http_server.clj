@@ -1,12 +1,7 @@
 (ns {{name}}.diplomat.http-server
-        (:require [schema.core :as s]))
+        (:require [io.pedestal.service.interceptors :as pedestal.service.interceptors]
+                  [{{name}}.diplomat.http-server.hello-world :as diplomat.http-server.hello-world]))
 
-{{=<% %>=}}
-(s/defn hello-world
-        [{{:keys [datalevin config]}  :components}]
-        {:status 200
-         :body   {:hello :world}})
-<%={{ }}=%>
-
-(def routes [["/api/hello-world" :post [hello-world]
+(def routes [["/api/hello-world" :post [pedestal.service.interceptors/json-body
+                                        diplomat.http-server.hello-world/hello-world]
               :route-name :hello-world]])
