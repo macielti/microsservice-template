@@ -1,4 +1,8 @@
 {:prod {:datalevin-uri "/tmp/{{name}}.datalevin"
         :name          "{{name}}"
         :service       {:host "0.0.0.0"
-                        :port 8000}}}
+                        :port 8000}
+        :targets       {:telegram-bot-api "https://api.telegram.org"}
+        :telegram      {:token                 "<bot token>"
+                        :poll-interval-seconds 1
+                        :chat-id               "<chat id>"}}}

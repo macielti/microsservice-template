@@ -11,12 +11,16 @@
                            [net.clojars.macielti/datalevin-component "0.1.0"]
                            [net.clojars.macielti/service-component "7.4.3"]
                            [net.clojars.macielti/common-clj "44.2.0"]
+                           [net.clojars.macielti/telegrama "1.2.0" :exclusions [io.pedestal/pedestal.interceptor]]
+                           [net.clojars.macielti/http-client-component "3.2.2"]
 
                            ;pedestal
                            [io.pedestal/pedestal.service "0.8.1"]
                            [io.pedestal/pedestal.jetty "0.8.1"]
                            [io.pedestal/pedestal.error "0.8.1"]
                            [io.pedestal/pedestal.interceptor "0.8.1"]
+
+                           [com.taoensso/timbre "6.8.0"]
 
                            ;GraalVM native image building
                            [com.github.clj-easy/graal-build-time "1.0.5"]]
@@ -25,7 +29,7 @@
 
             :profiles {:dev {:plugins [[lein-shell "0.5.0"]
                                        [com.github.liquidz/antq "RELEASE"]
-                                       [com.github.clojure-lsp/lein-clojure-lsp "2.0.13"]]
+                                       [com.github.clojure-lsp/lein-clojure-lsp "2.0.14"]]
 
                              :resource-paths ["test/resources"]
 

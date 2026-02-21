@@ -17,6 +17,7 @@
                   ["src/{{sanitized}}/db/datalevin/config.clj" (render "src/db/datalevin/config.clj" data)]
                   ["src/{{sanitized}}/diplomat/http_server/hello_world.clj" (render "src/diplomat/http_server/hello_world.clj" data)]
                   ["src/{{sanitized}}/diplomat/http_server.clj" (render "src/diplomat/http_server.clj" data)]
+                  ["src/{{sanitized}}/diplomat/telegram/consumer.clj" (render "src/diplomat/telegram/consumer.clj" data)]
                   ["resources/config.edn" (render "resources/config.edn" data)]
                   ["Dockerfile" (render "Dockerfile" data)]
                   [".dockerignore" (render "dockerignore" data)]
