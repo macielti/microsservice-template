@@ -26,4 +26,7 @@
                   ["reflect-config.json" (render "reflect-config.json" data)]
                   ["README.md" (render "README.md" data)]
                   [".clj-kondo/config.edn" (render "clj-kondo/config.edn" data)]
-                  [".lsp/config.edn" (render "lsp/config.edn" data)])))
+                  [".lsp/config.edn" (render "lsp/config.edn" data)]
+                  [".github/workflows/lint.yml" (render "github/workflows/lint.yml" data)]
+                  [".github/workflows/tests.yml" (render "github/workflows/tests.yml" data)]
+                  [".github/workflows/build.yml" (render "github/workflows/build.yml" data)])))
